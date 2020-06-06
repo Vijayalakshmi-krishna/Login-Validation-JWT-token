@@ -1,0 +1,127 @@
+<html>
+
+<head>
+    <title>
+        Login Validation
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            background-color:turquoise
+        }
+        form {
+            padding: 50px;
+        }
+
+        table {
+            background-color: lightcyan;
+            width: 25%;
+            height: 25%;
+        }
+
+        input[type=text],
+        input[type=password] select {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            margin: 5px;
+            margin: 8px 0;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: center;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function register() {
+            var data = {
+                name: document.getElementById("name").value,
+                gender: document.forms.RegisterForm.gender.value,
+                dob: document.getElementById("dob").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            };
+
+            //Insert new user
+            fetch("http://localhost:3000/register", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "content-Type": "application/json"
+
+                },
+                body: JSON.stringify(data)
+
+            })
+                .then(function (data) {
+                    console.log(data.json())
+                })
+
+                
+        }
+    </script>
+</head>
+
+<body>
+    
+    <form name="RegisterForm" id="register" align="center">
+        <div align="center">
+
+            <table>
+                <th colspan="2"><u>Register here for our products</u></th>
+                <tr>
+                    <td><label>Name:</label></td>
+                    <td><input type="text" id="name"></td>
+                </tr>
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td><input type="radio" id="male" name="gender" value="male"><label>Male</label>
+                        <input type="radio" id="female" name="gender" value="female"><label>Female</label></td>
+                </tr>
+                <tr>
+                    <td><label>Date Of Birth:</label></td>
+                    <td><input type="date" id="dob"></td>
+                </tr>
+                <tr>
+                    <td><label>Email:</label></td>
+                    <td><input type="email" id="email"></td>
+                </tr>
+                <td><label>Password:</label></td>
+                <td> <input type="password" id="password"></td>
+                <tr>
+                    <td colspan=2 align="center"><input type="submit" value="Signup" onclick="register(); return false"></td>
+                </tr>
+                <tr>
+                    <td colspan=2 align="center">
+                        <label>Already registered?</label><a href="loginform.html">Sign in</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </form>
+
+</body>
+
+</html>

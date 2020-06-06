@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>
+        Login page
+    </title>
+    <script src="loginform.js">
+
+    </script>
+    <style>
+        body {
+            background-color:turquoise
+        }
+        form {
+            padding: 50px;
+            
+        }
+
+        table {
+            background-color: lightcyan;
+            width: 25%;
+            height: 25%;
+        }
+
+        input[type=text],
+        input[type=password] select {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        input[type=button] {
+            background-color: #4CAF50;
+            color: white;
+            margin: 5px;
+            margin: 8px 0;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: center;
+        }
+
+        input[type=button]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="loginform" id="login">
+        <div align="center">
+            <table>
+                <th colspan="2"><u>Registered User Login Here</u></th>
+                <tr>
+                    <td> <label>Email:</label></td>
+                    <td><input type="email" id="email" placeholder="Enter your Email"></td>
+                </tr>
+                <tr>
+                    <td> <label>Password:</label></td>
+                    <td><input type="password" id="password" placeholder="Enter your password"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="button" id="login" value="Sign in" onclick="signin(); return false;"></td>
+                </tr>
+            </table>
+        </div>
+
+    </form>
+</body>
+
+</html>
